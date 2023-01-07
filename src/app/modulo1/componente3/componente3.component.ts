@@ -12,14 +12,20 @@ export class Componente3Component {
 
   nombre= "";
   cajaTexto="";
-  mensaje = "Falta rellenar los campos"
+
+  retorno=0;
+  mensaje = "Falta rellenar el campo de texto"
   // Metodo para añdir valores
   Agregar(){
     if(this.nombre.trim()==""){
-      return;}
+      return this.retorno =1;
+    }
     this.datos.push({'nombre': this.nombre, 'cajaTexto': this.cajaTexto})
     console.log(this.datos)
+    return this.retorno = -1;
   }
+
+
 
   eliminar(numero: number){
     this.datos.splice(numero, 1);
